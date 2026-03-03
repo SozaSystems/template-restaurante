@@ -1,0 +1,80 @@
+import React, { useState, useRef } from 'react';
+import { deliveryMenuData } from '../../data/deliveryMenuData';
+import './Delivery.css';
+
+const Delivery = () => {
+    const [openCategory, setOpenCategory] = useState(null);
+    const categoryRefs = useRef({});
+
+    const toggleCategory = (id) => {
+        const isOpening = openCategory !== id;
+        setOpenCategory(openCategory === id ? null : id);
+
+        // Scroll a la categoría con offset para el navbar
+        if (isOpening && categoryRefs.current[id]) {
+            setTimeout(() => {
+                const element = categoryRefs.current[id];
+                const navbarHeight = 80;
+                const elementPosition = element.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }, 100);
+        }
+    };
+    return (
+        <div className="menu-page container">
+            <div className="menu-brand-container">
+                <h2 className="menu-brand-text">Tu Marca</h2>
+            </div>
+            <h1 className="text-center menu-title">Menú Delivery y Take Away</h1>
+
+            <div className="menu-categories">
+                {deliveryMenuData.map((category) => (
+                    <div
+                        key={category.id}
+                        className="menu-category"
+                        ref={(el) => categoryRefs.current[category.id] = el}
+                    >
+                        <button
+                            className={`category-header ${openCategory === category.id ? 'active' : ''}`}
+                            onClick={() => toggleCategory(category.id)}
+                        >
+                            {category.title}
+                            <span>{openCategory === category.id ? '−' : '+'}</span>
+                        </button>
+
+                        {openCategory === category.id && (
+                            <div className="category-items">
+                                <ul className="items-list">
+                                    {category.items.map((item, index) => (
+                                        <li key={index} className="menu-item">
+                                            <div className="item-header">
+                                                <h3 className="item-name">{item.name}</h3>
+                                                <span className="item-price">{item.price}</span>
+                                            </div>
+                                            <p className="item-desc">{item.description}</p>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        )}
+                    </div>
+                ))}
+            </div>
+
+            <p className="menu-disclaimer">Precios publicados son para delivery y take away</p>
+
+            <div className="menu-promo">
+                <p className="promo-text">🎉 ¡Aprovecha los beneficios de la compra en TAKE AWAY! 🎉</p>
+            </div>
+
+
+        </div>
+    );
+};
+
+export default Delivery;

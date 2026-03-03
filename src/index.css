@@ -1,0 +1,216 @@
+:root {
+  /* ===== PALETA DE COLORES BASE ===== */
+  /* Paleta Negro / Amarillo */
+
+  /* Color Principal - Negro */
+  --color-primary: #111111;
+  --color-primary-dark: #000000;
+  --color-primary-light: #2a2a2a;
+
+  /* Color Secundario - Amarillo */
+  --color-secondary: #f5c400;
+  --color-secondary-dark: #c99e00;
+  --color-secondary-light: #ffe066;
+
+  /* Color de Fondo - Gris muy claro */
+  --color-bg: #f5f5f5;
+  --color-bg-light: #ffffff;
+  --color-bg-dark: #e0e0e0;
+
+  /* Colores Base */
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-black-soft: #1a1a1a;
+  --color-white-soft: #f9f9f9;
+
+  /* ===== VARIABLES SEMÁNTICAS ===== */
+
+  /* Textos */
+  --text-primary: var(--color-black-soft);
+  --text-secondary: var(--color-secondary-dark);
+  --text-on-dark: var(--color-white);
+  --text-on-primary: var(--color-white);
+  --text-on-secondary: var(--color-black);
+
+  /* Fondos de Secciones */
+  --bg-main: var(--color-bg);
+  --bg-section-light: var(--color-white);
+  --bg-section-primary: var(--color-primary);
+  --bg-section-secondary: var(--color-secondary);
+  --bg-section-beige: var(--color-bg-light);
+
+  /* Botones */
+  --btn-primary-bg: var(--color-primary);
+  --btn-primary-hover: var(--color-primary-light);
+  --btn-primary-text: var(--color-white);
+
+  --btn-secondary-bg: var(--color-secondary);
+  --btn-secondary-hover: var(--color-secondary-dark);
+  --btn-secondary-text: var(--color-black);
+
+  /* Bordes y Divisores */
+  --border-light: rgba(0, 0, 0, 0.1);
+  --border-primary: var(--color-primary);
+  --border-secondary: var(--color-secondary);
+
+  /* Tipografía */
+  --font-heading: 'Roboto', sans-serif;
+  --font-body: 'Roboto', sans-serif;
+
+  /* Espaciado */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 4rem;
+
+  /* Bordes redondeados */
+  --border-radius: 8px;
+  --border-radius-lg: 12px;
+}
+
+/* Reset & Estilos Base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+  background-color: var(--color-bg);
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-primary-dark);
+  color: var(--text-primary);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100%;
+  margin: 0;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Contenedor de React */
+#root {
+  isolation: isolate;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--text-secondary);
+  letter-spacing: 0.02em;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  border-radius: var(--border-radius);
+}
+
+/* Contenedor de la App */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  width: 100%;
+  background-color: var(--bg-main);
+  position: relative;
+}
+
+main {
+  flex: 1;
+  padding-top: 60px;
+  position: relative;
+  z-index: 1;
+  background-color: var(--color-bg);
+}
+
+/* Clases Utilitarias */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-sm);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.btn {
+  padding: 0.8rem 1.5rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border-radius: var(--border-radius);
+}
+
+.btn-primary {
+  background-color: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+}
+
+.btn-primary:hover {
+  background-color: var(--btn-primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn-secondary {
+  background-color: var(--btn-secondary-bg);
+  color: var(--btn-secondary-text);
+}
+
+.btn-secondary:hover {
+  background-color: var(--btn-secondary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 2px solid var(--color-primary);
+  color: var(--color-primary);
+}
+
+.btn-outline:hover {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
