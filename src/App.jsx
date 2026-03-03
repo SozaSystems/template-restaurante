@@ -5,17 +5,26 @@ import Home from './pages/Home/Home';
 import Menu from './pages/Menu/Menu';
 import Delivery from './pages/Delivery/Delivery';
 import Contact from './pages/Contact/Contact';
+import Admin from './pages/Admin/Admin';
 
 function App() {
   return (
-    <Layout>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/menu" element={<Menu />} />
-        <Route path="/delivery" element={<Delivery />} />
-        <Route path="/contacto" element={<Contact />} />
-      </Routes>
-    </Layout>
+    <Routes>
+      {/* Ruta de admin: sin Navbar ni Footer */}
+      <Route path="/admin" element={<Admin />} />
+
+      {/* Rutas públicas: con Layout */}
+      <Route path="/*" element={
+        <Layout>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/menu" element={<Menu />} />
+            <Route path="/delivery" element={<Delivery />} />
+            <Route path="/contacto" element={<Contact />} />
+          </Routes>
+        </Layout>
+      } />
+    </Routes>
   );
 }
 
