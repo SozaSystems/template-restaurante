@@ -4,7 +4,7 @@ export const menuData = [
     "title": "Pizzas",
     "items": [
       {
-        "name": "MUZZARELLAa",
+        "name": "MUZZARELLA",
         "description": "Mozzarella, salsa, aceitunas y orégano",
         "price": "$12000"
       },
