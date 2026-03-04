@@ -19,7 +19,7 @@ const Admin = () => {
         setLoading(true);
         setError('');
 
-        const isLocalhost = ['localhost', '127.0.0.1'].includes(window.location.hostname);
+        const isLocalhost = import.meta.env.DEV;
 
         try {
             if (isLocalhost) {

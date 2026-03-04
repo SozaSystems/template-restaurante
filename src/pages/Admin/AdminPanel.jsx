@@ -87,7 +87,7 @@ const AdminPanel = ({ onLogout }) => {
     // En producción: llama a /api/save-menu → GitHub API → Vercel redeploya
     const handleSave = async () => {
         setSaveStatus('saving');
-        const isLocalhost = ['localhost', '127.0.0.1'].includes(window.location.hostname);
+        const isLocalhost = import.meta.env.DEV;
 
         try {
             if (isLocalhost) {
@@ -130,8 +130,8 @@ const AdminPanel = ({ onLogout }) => {
                 <button className={`admin-tab ${activeTab === 'menu' ? 'active' : ''}`} onClick={() => setActiveTab('menu')}>
                     Menú Local
                 </button>
-                <button className={`admin-tab ${activeTab === 'delivery' ? 'active' : ''}`} onClick={() => setActiveTab('delivery')}>
-                    Delivery
+                <button className={`admin-tab delivery ${activeTab === 'delivery' ? 'active' : ''}`} onClick={() => setActiveTab('delivery')}>
+                    Menú Delivery / Takeaway
                 </button>
             </div>
 
@@ -139,7 +139,7 @@ const AdminPanel = ({ onLogout }) => {
                 {currentData.map((category, catIndex) => (
                     <div key={`${activeTab}-${catIndex}`} className="admin-category">
                         {/* Encabezado categoría */}
-                        <div className="admin-cat-header">
+                        <div className={`admin-cat-header ${activeTab === 'delivery' ? 'is-delivery' : ''}`}>
                             {editingCategory?.index === catIndex ? (
                                 <div className="admin-inline-edit">
                                     <input

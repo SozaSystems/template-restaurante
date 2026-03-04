@@ -81,7 +81,7 @@
 
 /* Menú activo/seleccionado */
 .nav-btn.active-link {
-    color: var(--color-white);
+    color: var(--color-secondary);
     font-weight: 700;
     background-color: var(--color-primary-dark);
 }

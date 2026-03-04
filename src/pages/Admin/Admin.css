@@ -52,6 +52,21 @@
     color: var(--color-black-soft);
 }
 
+.admin-form-group input {
+    padding: 0.85rem;
+    font-size: 16px;
+    /* 16px es clave para evitar que iOS haga auto-zoom */
+    border: 2px solid var(--color-bg-dark);
+    border-radius: var(--border-radius);
+    outline: none;
+    transition: border-color 0.2s;
+    font-family: var(--font-body);
+}
+
+.admin-form-group input:focus {
+    border-color: var(--color-primary);
+}
+
 .admin-error {
     color: #dc2626;
     font-size: 0.85rem;
@@ -153,11 +168,17 @@
     border-color: var(--color-primary);
 }
 
+.admin-tab.delivery.active {
+    background: var(--color-secondary);
+    color: var(--color-black);
+    border-color: var(--color-secondary);
+}
+
 /* Content */
 .admin-content {
     max-width: 900px;
     margin: 0 auto;
-    padding: 1.5rem 1rem 4rem;
+    padding: 0.5rem 1rem 4rem;
 }
 
 /* Categoría */
@@ -176,6 +197,28 @@
     padding: 0.75rem 1rem;
     background: var(--color-primary);
     gap: 1rem;
+    transition: background 0.2s;
+}
+
+/* Color específico para headers cuando estamos en tab Delivery */
+.admin-cat-header.is-delivery {
+    background: var(--color-secondary);
+}
+
+.admin-cat-header.is-delivery .admin-cat-toggle,
+.admin-cat-header.is-delivery .admin-cat-toggle .admin-cat-arrow,
+.admin-cat-header.is-delivery .admin-cat-toggle .admin-cat-title,
+.admin-cat-header.is-delivery .admin-cat-toggle .admin-cat-count {
+    color: var(--color-black);
+}
+
+.admin-cat-header.is-delivery .admin-btn-icon {
+    background: rgba(0, 0, 0, 0.1);
+    color: var(--color-black);
+}
+
+.admin-cat-header.is-delivery .admin-btn-icon:hover {
+    background: rgba(0, 0, 0, 0.25);
 }
 
 .admin-cat-toggle {
@@ -496,4 +539,91 @@
 .admin-save-btn:disabled {
     opacity: 0.6;
     cursor: not-allowed;
+}
+
+/* ===== RESPONSIVE (MÓVIL) ===== */
+@media (max-width: 640px) {
+
+    .admin-header-content,
+    .admin-tabs,
+    .admin-content {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+
+    .admin-title {
+        font-size: 1.1rem;
+    }
+
+    .admin-logout-btn {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+    }
+
+    .admin-tabs {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .admin-tab {
+        border-radius: 6px;
+        margin-bottom: 0.25rem;
+        text-align: center;
+        padding: 0.75rem 1rem;
+        border-bottom: 2px solid var(--color-bg-dark);
+    }
+
+    .admin-tab.active {
+        border-bottom-color: var(--color-primary);
+    }
+
+    .admin-tab.delivery.active {
+        border-bottom-color: var(--color-secondary);
+    }
+
+    .admin-content {
+        padding-top: 1rem;
+    }
+
+    .admin-cat-header {
+        padding: 0.6rem 0.75rem;
+        gap: 0.5rem;
+    }
+
+    .admin-cat-title {
+        font-size: 0.95rem;
+    }
+
+    .admin-btn-icon {
+        padding: 0.25rem 0.4rem;
+        font-size: 0.9rem;
+    }
+
+    .admin-inline-edit {
+        flex-wrap: wrap;
+    }
+
+    .admin-inline-edit .admin-input {
+        flex: 1 1 100%;
+        margin-bottom: 0.5rem;
+    }
+
+    .admin-item {
+        padding: 0.6rem 0.75rem;
+    }
+
+    .admin-item-info {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+    }
+
+    .admin-item-price {
+        align-self: flex-start;
+    }
+
+    .admin-save-btn {
+        width: 100%;
+        padding: 1rem 1.5rem;
+    }
 }
