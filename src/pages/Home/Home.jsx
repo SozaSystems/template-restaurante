@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import Gallery from '../../components/Gallery/Gallery';
 import './Home.css';
 
 const Home = () => {
@@ -44,6 +45,9 @@ const Home = () => {
                     </p>
                 </div>
             </section>
+
+            {/* Sección Galería */}
+            <Gallery />
 
             {/* Sección Servicios */}
             <section className="section-quality">
