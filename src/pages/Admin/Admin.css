@@ -157,8 +157,7 @@
 .admin-content {
     max-width: 900px;
     margin: 0 auto;
-    padding: 0 1rem 4rem;
-    border-top: 3px solid var(--color-primary);
+    padding: 1.5rem 1rem 4rem;
 }
 
 /* Categoría */

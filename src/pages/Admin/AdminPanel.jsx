@@ -263,7 +263,7 @@ const AdminPanel = ({ onLogout }) => {
                 <div className="admin-save-section">
                     {saveStatus === 'success' && (
                         <div className="admin-save-notice">
-                            ✅ Cambios guardados. En producción, esto actualizaría el archivo en GitHub y Vercel redesplegaría automáticamente.
+                            ✅ ¡Menú actualizado correctamente!
                         </div>
                     )}
                     {saveStatus === 'error' && (
