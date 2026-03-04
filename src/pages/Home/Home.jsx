@@ -40,7 +40,7 @@ const Home = () => {
                         Trabajamos cada día para mejorar la calidad y el disfrute de quienes nos eligen.
                         <br />
                         <br />
-                        Tu Marca. Sabor,&nbsp; momentos y ganas de volver. 🍽️❤️
+                        Tu Marca. Sabor, momentos y ganas de volver. 🍽️❤️
                     </p>
                 </div>
             </section>
@@ -67,9 +67,7 @@ const Home = () => {
                             <h3 className="dish-title">Take Away</h3>
                             <p>Pedí y retiralo para disfrutar donde quieras.
                                 <br />
-                                💛 Precios especiales para llevar.
-                                <br />
-                                📱Consulta por whatsapp.
+                                Precios especiales para llevar.💛
                             </p>
                         </div>
                     </div>
