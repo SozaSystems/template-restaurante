@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { Eye, EyeOff } from 'lucide-react';
 import AdminPanel from './AdminPanel';
 import './Admin.css';
 
 const Admin = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [password, setPassword] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
 
@@ -66,20 +69,33 @@ const Admin = () => {
     return (
         <div className="admin-login-container">
             <div className="admin-login-card">
-                <h1 className="admin-login-title">Tu Marca</h1>
+                <Link to="/" className="admin-login-brand-link">
+                    <h1 className="admin-login-title">Tu Marca</h1>
+                </Link>
                 <p className="admin-login-subtitle">Panel de Administración</p>
                 <form onSubmit={handleLogin} className="admin-login-form">
                     <div className="admin-form-group">
                         <label htmlFor="admin-password">Contraseña</label>
-                        <input
-                            id="admin-password"
-                            type="password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            placeholder="Ingresá tu contraseña"
-                            autoFocus
-                            disabled={loading}
-                        />
+                        <div className="password-input-wrapper">
+                            <input
+                                id="admin-password"
+                                type={showPassword ? "text" : "password"}
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                placeholder="Ingresá tu contraseña"
+                                autoFocus
+                                disabled={loading}
+                            />
+                            <button
+                                type="button"
+                                className="password-toggle-btn"
+                                onClick={() => setShowPassword(!showPassword)}
+                                tabIndex="-1"
+                                title={showPassword ? "Ocultar contraseña" : "Ver contraseña"}
+                            >
+                                {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+                            </button>
+                        </div>
                     </div>
                     {error && <p className="admin-error">{error}</p>}
                     <button type="submit" className="admin-login-btn" disabled={loading}>

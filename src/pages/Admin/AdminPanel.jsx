@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { menuData as initialMenuData } from '../../data/menuData';
-import { deliveryMenuData as initialDeliveryData } from '../../data/deliveryMenuData';
+import { Link } from 'react-router-dom';
+import { menuData as initialMenuData, deliveryMenuData as initialDeliveryData } from '../../data/menuData';
 
 const deepClone = (data) => JSON.parse(JSON.stringify(data));
 
@@ -125,6 +125,12 @@ const AdminPanel = ({ onLogout }) => {
                     <button onClick={onLogout} className="admin-logout-btn">Cerrar sesión</button>
                 </div>
             </header>
+
+            <div className="admin-panel-logo-container">
+                <Link to="/" className="admin-panel-brand-link">
+                    <span className="admin-panel-brand-text">Tu Marca</span>
+                </Link>
+            </div>
 
             <div className="admin-tabs">
                 <button className={`admin-tab ${activeTab === 'menu' ? 'active' : ''}`} onClick={() => setActiveTab('menu')}>

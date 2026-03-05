@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { deliveryMenuData } from '../../data/deliveryMenuData';
+import { deliveryMenuData } from '../../data/menuData';
 import './Delivery.css';
 
 const Delivery = () => {
